@@ -21,12 +21,21 @@ export function useTrips() {
   const [trips, setTrips] = useState(readTrips)
 
   useEffect(() => {
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(trips))
+    const json = JSON.stringify(trips)
+    if (localStorage.getItem(STORAGE_KEY) === json) {
+      return
+    }
+    localStorage.setItem(STORAGE_KEY, json)
     window.dispatchEvent(new Event(CHANGE_EVENT))
   }, [trips])
 
   useEffect(() => {
-    const sync = () => setTrips(readTrips())
+    const sync = () => {
+      setTrips((current) => {
+        const next = readTrips()
+        return JSON.stringify(current) === JSON.stringify(next) ? current : next
+      })
+    }
     window.addEventListener(CHANGE_EVENT, sync)
     window.addEventListener('storage', sync)
     return () => {

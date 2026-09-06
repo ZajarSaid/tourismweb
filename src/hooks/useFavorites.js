@@ -15,12 +15,21 @@ export function useFavorites() {
   const [favorites, setFavorites] = useState(readFavorites)
 
   useEffect(() => {
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(favorites))
+    const json = JSON.stringify(favorites)
+    if (localStorage.getItem(STORAGE_KEY) === json) {
+      return
+    }
+    localStorage.setItem(STORAGE_KEY, json)
     window.dispatchEvent(new Event(CHANGE_EVENT))
   }, [favorites])
 
   useEffect(() => {
-    const sync = () => setFavorites(readFavorites())
+    const sync = () => {
+      setFavorites((current) => {
+        const next = readFavorites()
+        return JSON.stringify(current) === JSON.stringify(next) ? current : next
+      })
+    }
     window.addEventListener(CHANGE_EVENT, sync)
     window.addEventListener('storage', sync)
     return () => {

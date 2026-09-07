@@ -1,31 +1,27 @@
-import { Route, Routes } from 'react-router-dom'
-import Layout from '../components/layout/Layout.jsx'
-import ProtectedRoute from '../components/common/ProtectedRoute.jsx'
-import HomePage from '../pages/HomePage.jsx'
-import AboutPage from '../pages/AboutPage.jsx'
-import DestinationsPage from '../pages/DestinationsPage.jsx'
-import DestinationDetailsPage from '../pages/DestinationDetailsPage.jsx'
-import LoginPage from '../pages/LoginPage.jsx'
-import RegisterPage from '../pages/RegisterPage.jsx'
-import FavoritesPage from '../pages/FavoritesPage.jsx'
-import DashboardPage from '../pages/DashboardPage.jsx'
-import MyTripsPage from '../pages/MyTripsPage.jsx'
-import TripFormPage from '../pages/TripFormPage.jsx'
-import TripDetailsPage from '../pages/TripDetailsPage.jsx'
-import ProfilePage from '../pages/ProfilePage.jsx'
-import NotFoundPage from '../pages/NotFoundPage.jsx'
+import { Route, Routes } from "react-router-dom";
+import Layout from "../components/layout/Layout.jsx";
+import ProtectedRoute from "../components/common/ProtectedRoute.jsx";
+import HomePage from "../pages/HomePage.jsx";
+import AboutPage from "../pages/AboutPage.jsx";
+import DestinationsPage from "../pages/DestinationsPage.jsx";
+import DestinationDetailsPage from "../pages/DestinationDetailsPage.jsx";
+import LoginPage from "../pages/LoginPage.jsx";
+import RegisterPage from "../pages/RegisterPage.jsx";
+import FavoritesPage from "../pages/FavoritesPage.jsx";
+import DashboardPage from "../pages/DashboardPage.jsx";
+import MyTripsPage from "../pages/MyTripsPage.jsx";
+import TripFormPage from "../pages/TripFormPage.jsx";
+import TripDetailsPage from "../pages/TripDetailsPage.jsx";
+import ProfilePage from "../pages/ProfilePage.jsx";
+import NotFoundPage from "../pages/NotFoundPage.jsx";
 
 function AppRoutes() {
   return (
-    {/* Routes*/}
     <Routes>
       <Route element={<Layout />}>
         <Route index element={<HomePage />} />
         <Route path="destinations" element={<DestinationsPage />} />
-        <Route
-          path="destinations/:id"
-          element={<DestinationDetailsPage />}
-        />
+        <Route path="destinations/:id" element={<DestinationDetailsPage />} />
         <Route path="about" element={<AboutPage />} />
         <Route path="login" element={<LoginPage />} />
         <Route path="register" element={<RegisterPage />} />
@@ -88,7 +84,7 @@ function AppRoutes() {
         <Route path="*" element={<NotFoundPage />} />
       </Route>
     </Routes>
-  )
+  );
 }
 
-export default AppRoutes
+export default AppRoutes;

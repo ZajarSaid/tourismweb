@@ -17,6 +17,7 @@ import NotFoundPage from '../pages/NotFoundPage.jsx'
 
 function AppRoutes() {
   return (
+    {/* Routes*/}
     <Routes>
       <Route element={<Layout />}>
         <Route index element={<HomePage />} />

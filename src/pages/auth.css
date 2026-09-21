@@ -187,3 +187,17 @@
     display: flex;
   }
 }
+
+@media (max-width: 480px) {
+  .auth-page {
+    padding-block: 32px;
+  }
+
+  .auth {
+    border-radius: 16px;
+  }
+
+  .auth__panel {
+    padding: 24px 20px;
+  }
+}

@@ -107,9 +107,6 @@ function Footer() {
             &copy; {new Date().getFullYear()} Safari Explorer. All rights
             reserved.
           </p>
-          <Link to="/" className="footer__top-link">
-            Back to top ↑
-          </Link>
         </div>
       </div>
     </footer>

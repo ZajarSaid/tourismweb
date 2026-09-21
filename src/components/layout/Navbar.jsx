@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import { Link, NavLink, useNavigate } from 'react-router-dom'
 import { useAuth } from '../../context/AuthContext.jsx'
 
@@ -10,10 +11,16 @@ const publicNavItems = [
 function Navbar() {
   const { user, logout } = useAuth()
   const navigate = useNavigate()
+  const [menuOpen, setMenuOpen] = useState(false)
 
   const handleLogout = () => {
+    setMenuOpen(false)
     logout()
     navigate('/')
+  }
+
+  const handleNavClick = () => {
+    setMenuOpen(false)
   }
 
   return (
@@ -22,7 +29,12 @@ function Navbar() {
         <Link to="/" className="navbar__brand">
           Safari Explorer
         </Link>
-        <nav className="navbar__nav" aria-label="Main navigation">
+        <nav
+          id="main-nav"
+          className={`navbar__nav ${menuOpen ? 'navbar__nav--open' : ''}`}
+          aria-label="Main navigation"
+          onClick={handleNavClick}
+        >
           {publicNavItems.map((item) => (
             <NavLink
               key={item.to}
@@ -98,6 +110,19 @@ function Navbar() {
             </>
           )}
         </nav>
+
+        <button
+          type="button"
+          className="navbar__toggle"
+          aria-expanded={menuOpen}
+          aria-controls="main-nav"
+          aria-label="Toggle navigation menu"
+          onClick={() => setMenuOpen((open) => !open)}
+        >
+          <span className="navbar__toggle-bar" />
+          <span className="navbar__toggle-bar" />
+          <span className="navbar__toggle-bar" />
+        </button>
       </div>
     </header>
   )

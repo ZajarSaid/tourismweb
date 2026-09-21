@@ -112,6 +112,17 @@
   border-radius: var(--radius);
 }
 
+@media (max-width: 560px) {
+  .trip-destination {
+    flex-wrap: wrap;
+    align-items: flex-start;
+  }
+
+  .trip-destination .button {
+    margin-left: auto;
+  }
+}
+
 .trip-destination__image {
   width: 72px;
   height: 54px;

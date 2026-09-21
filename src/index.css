@@ -114,6 +114,26 @@ button:focus-visible {
   margin-bottom: 24px;
 }
 
+@media (max-width: 480px) {
+  .container {
+    padding-inline: 16px;
+  }
+}
+
+@media (max-width: 560px) {
+  .page {
+    padding: 40px 0;
+  }
+
+  .page__title {
+    font-size: 26px;
+  }
+
+  .page__text {
+    font-size: 15px;
+  }
+}
+
 .button {
   display: inline-block;
   padding: 12px 24px;

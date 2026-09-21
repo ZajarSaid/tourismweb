@@ -49,9 +49,9 @@ function DestinationCard({ destination }) {
         <div className="destination-card__footer">
           <Link
             to={`/destinations/${destination.id}`}
-            className="button button--small"
+            className="button button--small destination-card__view"
           >
-            View Details
+            View Details <span className="destination-card__view-arrow" aria-hidden="true">→</span>
           </Link>
           <FavoriteButton
             favorite={user ? isFavorite(destination.id) : false}

@@ -76,14 +76,26 @@ function Navbar() {
               </button>
             </>
           ) : (
-            <NavLink
-              to="/login"
-              className={({ isActive }) =>
-                isActive ? 'navbar__link navbar__link--active' : 'navbar__link'
-              }
-            >
-              Login
-            </NavLink>
+            <>
+              <NavLink
+                to="/login"
+                className={({ isActive }) =>
+                  isActive ? 'navbar__link navbar__link--active' : 'navbar__link'
+                }
+              >
+                Login
+              </NavLink>
+              <NavLink
+                to="/register"
+                className={({ isActive }) =>
+                  isActive
+                    ? 'navbar__link navbar__link--cta navbar__link--cta-active'
+                    : 'navbar__link navbar__link--cta'
+                }
+              >
+                Register
+              </NavLink>
+            </>
           )}
         </nav>
       </div>
